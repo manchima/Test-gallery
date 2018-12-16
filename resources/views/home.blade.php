@@ -17,6 +17,7 @@
     <div class="container" id="home-app2">
         <home-app2></home-app2>
     </div>
+    test
 
     {{--<div class="container">--}}
         {{--Disk Usage Compositions--}}

@@ -15,33 +15,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('file-upload',require('./components/FileUpload_1.vue'));
-Vue.component('image-component', require('./components/ImageuploadComponent.vue'));
-Vue.component('image-upload', require('./components/ImageUpload.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('image-app', require('./components/App.vue'));
-Vue.component('home-app', require('./components/HomeApp.vue'));
-Vue.component('home-app2', require('./components/HomeApp2.vue'));
+Vue.component('image-upload', require('./components/ImageUploader.vue'));
+Vue.component('upload-panel', require('./components/UploadPanel.vue'));
 
-const homeApp = new Vue({
-    el: '#home-app',
-    data: {
-        items: [],
-        mounted:function(){
-            this.getStorage(); //method1 will execute at pageload
-        },
-    }
-});
 
-const homeApp2 = new Vue({
-    el: '#home-app2',
-    data: {
-        datas: [],
-        mounted:function(){
-            this.getDetail(); //method1 will execute at pageload
-        },
-    }
-});
 
 const imageUpload = new Vue({
     el: '#image-upload',
@@ -54,34 +33,13 @@ const imageUpload = new Vue({
     }
 });
 
-const imageApp = new Vue({
-    el: '#image-app',
+const uploadPanel = new Vue({
+    el: '#upload-panel',
     data: {
         items: [],
+        showDelBtn: false,
         mounted:function(){
             this.getImages(); //method1 will execute at pageload
         },
     }
 });
-
-
-// const homeApp = new Vue({
-//     el: '#home-app',
-//     data: {
-//         items: [],
-//         hasError: true,
-//         showModal: false,
-//         newItem: {'name': '', 'age': '', 'profession': ''},
-//         mounted: function () {
-//             this.getStorage(); //method1 will execute at pageload
-//         },
-//         getStorage: function (){
-//             var this1 = this;
-//             axios.get('/home/overview').then(function (response) {
-//                 this1.items = response.data;
-//             });
-//         }
-//     }
-// });
-
-

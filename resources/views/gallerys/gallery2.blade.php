@@ -1,3 +1,4 @@
+@@ -0,0 +1,25 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>

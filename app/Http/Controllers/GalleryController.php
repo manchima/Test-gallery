@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Picdatas;
+use function PHPSTORM_META\type;
 
 class GalleryController extends Controller
 {
@@ -23,6 +24,7 @@ class GalleryController extends Controller
     //To upload file to path
     public function upload(Request $request)
     {
+        $data = [];
         if (count($request->images)) {
             foreach ($request->images as $image) {
                 $name = $image->getClientOriginalName();
@@ -40,10 +42,24 @@ class GalleryController extends Controller
                 $picdata->image_size = $size;
                 $picdata->type = $mime;
                 $picdata->save();
+
+                $data = [
+//                    'id' => $pics->id,
+                    'name' => 'storage/' . $name,
+                    'type' => $mime,
+                    'isImage' => $mime == 'image/jpeg' || $mime == 'image/png' ? true : false,
+                    'isOverMaxSize' => $size > 10485760 ? true : false,
+                    'isUpload' => false,
+                    'progressPercentage' => 100
+                ];
+
+
             }
         }
+//        echo $data;
         return response()->json([
-            "message" => "$picdata"
+            "message" => "success",
+            "data" => $data
         ]);
     }
 
